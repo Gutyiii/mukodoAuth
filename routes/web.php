@@ -25,7 +25,6 @@ Route::get('/bejelentkezes', function () { return view('pages.bejelentkezes'); }
 Route::get('/regisztracio', function () { return view('pages.regisztracio'); });
 Route::get('/elfelejtettjelszo', function () { return view('pages.elfelejtettjelszo'); });
 Route::get('/berletVasarlas', function () { return view('pages.berletVasarlas'); });
-Route::get('/admin', function () { return view('admin'); });
 
 /*gépek oldal
 Route::get('/api/gepek/search', [GepekController::class, 'search']);
@@ -62,8 +61,9 @@ Route::get('/login', function(){
     return view("Login");
 });
 
-Route::get('/login', [CostumAuthController::class, 'login']);
-Route::get('/registration', [CostumAuthController::class, 'registration']);
+Route::get('/login', [CostumAuthController::class, 'login'])->middleware('alreadyLoggedIn');
+Route::get('/registration', [CostumAuthController::class, 'registration'])->middleware('alreadyLoggedIn');
 Route::post('/register-user', [CostumAuthController::class, 'registerUser'])->name('register-user');
 Route::post('/login-user',[CostumAuthController::class, 'loginUser'])->name('login-user');
-Route::get('/dashboard', [CostumAuthController::class, 'dashboard']);
+Route::get('/dashboard', [CostumAuthController::class, 'dashboard'])->middleware('isLoggedIn');
+Route::get('/logout', [CostumAuthController::class, 'logout']);

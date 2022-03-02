@@ -4,10 +4,10 @@
     </div>
     <div id="ki-be_jel">
         <div id="bejelentkezes">
-            <p><a href="/bejelentkezes">Bejelentkezés</a></p>
+            <p><a href="/login">Bejelentkezés</a></p>
         </div>
         <div id="regisztracio">
-            <p><a href="/regisztracio">Regisztració</a></p>
+            <p><a href="/registration">Regisztració</a></p>
         </div>
     </div>
 </header>
